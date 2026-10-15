@@ -1,13 +1,93 @@
-#center
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+@import "tailwindcss";
+
+/*
+ * Design system — Portfólio Fausto Ramos 
+ * Tema escuro "terminal": fundo azul-noite, acento âmbar,
+ * tipografia Space Grotesk + JetBrains Mono.
+ * Fontes: adicione no <head> do HTML:
+ * <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+ */
+
+@theme inline {
+  /* Raios */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Cores semânticas (viram classes: bg-background, text-primary, border-border...) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-glow: var(--glow);
+
+  /* Fontes (viram classes: font-display, font-mono) */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
-.hero
-{
-  text-align: center;
-  font-family: Arial, sans-serif;
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.16 0.025 255);
+  --foreground: oklch(0.94 0.01 250);
+  --card: oklch(0.20 0.03 255);
+  --card-foreground: oklch(0.94 0.01 250);
+  --primary: oklch(0.80 0.16 75);
+  --primary-foreground: oklch(0.18 0.03 255);
+  --secondary: oklch(0.25 0.035 255);
+  --secondary-foreground: oklch(0.94 0.01 250);
+  --muted: oklch(0.25 0.035 255);
+  --muted-foreground: oklch(0.66 0.02 255);
+  --accent: oklch(0.25 0.035 255);
+  --accent-foreground: oklch(0.94 0.01 250);
+  --destructive: oklch(0.60 0.20 25);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.80 0.16 75);
+  --surface: oklch(0.22 0.03 255);
+  --surface-foreground: oklch(0.94 0.01 250);
+  --glow: oklch(0.80 0.16 75 / 18%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+@layer utilities {
+  /* Grade de fundo do hero (use: <div class="hero-grid absolute inset-0 pointer-events-none">) */
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
 }
