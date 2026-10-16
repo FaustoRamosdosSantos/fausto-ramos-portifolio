@@ -1,7 +1,7 @@
 const links = [
-  { href: '/', texto: 'Início' },
-  { href: '/sobre.html', texto: 'Sobre mim' },
-  { href: '/contato.html', texto: 'Contato' },
+  { href: './', texto: 'Início' },
+  { href: 'sobre.html', texto: 'Sobre mim' },
+  { href: 'contato.html', texto: 'Contato' },
 ]
 
 export function header(caminhoAtual) {

@@ -11,7 +11,7 @@ const tags = habilidades
   .join('')
 
 document.querySelector('#app').innerHTML = `
-${header('/sobre.html')}
+${header('sobre.html')}
 <main>
   <section class="mx-auto max-w-5xl px-6 py-16 sm:py-24">
     <p class="font-mono text-sm text-primary">&lt;sobre-mim /&gt;</p>
