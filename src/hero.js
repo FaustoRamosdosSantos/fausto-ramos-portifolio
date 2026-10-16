@@ -28,7 +28,7 @@ export function hero() {
           <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
         </svg>
       </a>
-      <a href="#contato"
+      <a href="/contato.html"
          class="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-2.5 text-sm font-medium text-card-foreground transition-colors hover:border-primary/40">
         Entrar em contato
       </a>

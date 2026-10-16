@@ -4,7 +4,7 @@ import { projetosSecao } from './projetos.js'
 import { footer } from './footer.js'
 
 document.querySelector('#app').innerHTML = `
-${header()}
+${header('/')}
 ${hero()}
 ${projetosSecao()}
 ${footer()}
