@@ -1,4 +1,4 @@
-
+import { hero } from './hero.js'
 
 
 document.querySelector('#app').innerHTML = `
@@ -15,7 +15,7 @@ document.querySelector('#app').innerHTML = `
       </svg>
       <span>fausto.dev</span>
     </a>
-
+    <!-- Menu de navegação -->
     <ul class="flex items-center gap-1">
       <li><a href="#inicio"    class="rounded-md px-3 py-2 text-sm text-primary transition-colors">Início</a></li>
       <li><a href="#sobre-mim" class="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground">Sobre mim</a></li>
@@ -24,10 +24,6 @@ document.querySelector('#app').innerHTML = `
 
   </nav>
 </header>
-<section class="bg-background text-foreground p-10">
-  <div>
-    <h1 style="text-align: center; font-size: 5rem;">Portfólio <br> Fausto Ramos <br> Em Criação</h1>
-  </div>
-</section>
+${hero()}
 `
 
