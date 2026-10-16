@@ -2,6 +2,8 @@
 
 Portfólio pessoal de Fausto Ramos, desenvolvedor web júnior. Site de três páginas (Início, Sobre mim e Contato) feito com **HTML, Tailwind CSS e JavaScript puro**, sem frameworks.
 
+🔗 **Site no ar:** https://faustoramosdossantos.github.io/fausto-ramos-portifolio/
+
 > 🚧 Em construção: textos, links e imagens dos projetos ainda são placeholders.
 
 ## Páginas
@@ -69,7 +71,7 @@ npm run dev
 
 O site abre em `http://localhost:5173`.
 
-## Build e publicação
+## Build
 
 ```bash
 npm run build     # gera a pasta dist/
@@ -80,10 +82,22 @@ npm run preview   # serve a dist/ localmente para conferir o resultado final
 - Abra a versão final com `npm run preview`. Abrir o `dist/index.html` com duplo clique não funciona, porque os caminhos e os módulos exigem um servidor.
 - A pasta `dist/` é gerada a cada build e não vai para o repositório.
 
+## Publicação (GitHub Pages)
+
+O site é publicado automaticamente pelo **GitHub Actions**: a cada `git push` na branch `main`, o workflow `.github/workflows/deploy.yml` roda `npm run build` e publica a pasta `dist/`.
+
+Pontos que fazem isso funcionar (e que quebram o site se esquecidos):
+
+- **Fonte do Pages:** em *Settings → Pages → Source*, deve estar **GitHub Actions** (e não "Deploy from a branch"), senão o GitHub publica os arquivos-fonte em vez do build.
+- **`base` no `vite.config.js`:** o site mora em `/fausto-ramos-portifolio/`, então o Vite precisa saber o nome do repositório. Se o repositório for renomeado, esse valor muda junto.
+- **Links relativos nos `.js`:** o `base` corrige os caminhos dos arquivos HTML, mas não os links escritos dentro dos templates JavaScript. Por isso os links usam `sobre.html` e `./`, e nunca `/sobre.html`, que apontaria para fora do site.
+- **`package-lock.json`:** precisa estar no repositório, porque o workflow usa `npm ci`.
+
+Para republicar sem mudar código, use *Actions → Publicar no GitHub Pages → Run workflow*.
+
 ## Próximos passos
 
 - [ ] Preencher os textos de `sobre.js` e os links de `contato.js`
 - [ ] Publicar os três projetos de destaque e atualizar seus links
 - [ ] Trocar os placeholders de imagem por capturas de tela
 - [ ] Adicionar `description` e tags Open Graph ao `index.html`
-- [ ] Publicar o site (Vercel ou Netlify)
